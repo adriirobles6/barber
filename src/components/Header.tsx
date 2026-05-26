@@ -10,6 +10,7 @@ const nav = [
   { to: "/servicios", label: "Servicios" },
   { to: "/equipo", label: "Equipo" },
   { to: "/contacto", label: "Contacto" },
+  { to: "/academia", label: "Academia" },
 ] as const;
 
 export function Header() {
