@@ -54,6 +54,7 @@ function AcademiaPage() {
             <h2 className="font-display text-3xl uppercase tracking-widest text-foreground">Galería</h2>
             <div className="flex gap-4">
               <span className="flex items-center gap-2 text-sm text-muted-foreground uppercase tracking-wider"><ImageIcon className="w-4 h-4 text-gold"/> Fotos</span>
+              <span className="flex items-center gap-2 text-sm text-muted-foreground uppercase tracking-wider"><Video className="w-4 h-4 text-gold"/> Vídeo</span>
             </div>
           </div>
           
@@ -71,6 +72,20 @@ function AcademiaPage() {
                 alt="Profesor enseñando técnica de corte en la academia" 
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
+            </div>
+          </div>
+
+          <div className="mt-6 max-w-4xl mx-auto">
+            <div className="overflow-hidden border border-border/60 bg-card">
+              <video
+                src="/academia-video.mp4"
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full"
+              >
+                Tu navegador no soporta la reproducción de vídeo.
+              </video>
             </div>
           </div>
         </section>
