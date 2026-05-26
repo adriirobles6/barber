@@ -21,9 +21,10 @@ const team = [
     name: "Jorge",
     role: "Founder · Master Barber",
     img: jorge,
-    bio: "Más de 10 años perfeccionando fades y barbas. Su precisión y trato cercano lo han convertido en el favorito de la casa.",
+    bio: "5 años perfeccionando fades y barbas con una trayectoria impecable. Su precisión y trato cercano lo han convertido en el favorito de la casa.",
     specialties: ["Fades", "Diseños", "Barba clásica"],
-    bookingUrl: `${BOOKSY_URL}?staffer=jorge`,
+    bookingUrl: "https://booksy.com/es-es/142517_jc-barberclub_barberia_29260_marbella/staffer/211202#ba_s=sr_1",
+    instagramUrl: "https://www.instagram.com/jorgeromero.barber/?hl=es",
   },
   {
     name: "Cristian",
@@ -31,7 +32,8 @@ const team = [
     img: cristian,
     bio: "Estilo urbano y mano firme. Especialista en cortes modernos, color y degradados de alta definición.",
     specialties: ["Skin fade", "Color", "Estilo urbano"],
-    bookingUrl: `${BOOKSY_URL}?staffer=cristian`,
+    bookingUrl: "https://booksy.com/es-es/142517_jc-barberclub_barberia_29260_marbella/staffer/212404#ba_s=sr_1",
+    instagramUrl: "https://www.instagram.com/gipsy.barber_/?hl=es",
   },
 ];
 
@@ -77,14 +79,24 @@ function TeamPage() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={m.bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-8 inline-flex w-full items-center justify-center bg-gold px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary-foreground transition-transform hover:scale-[1.02]"
-                  >
-                    Reservar con {m.name}
-                  </a>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href={m.bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center bg-gold px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary-foreground transition-transform hover:scale-[1.02]"
+                    >
+                      Reservar con {m.name}
+                    </a>
+                    <a
+                      href={m.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center border border-gold/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-gold transition-colors hover:bg-gold/10"
+                    >
+                      Instagram
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}
