@@ -1,6 +1,11 @@
 {
+  "functions": {
+    "api/reviews.ts": {
+      "runtime": "@vercel/node@3"
+    }
+  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
-}
+}

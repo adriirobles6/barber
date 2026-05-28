@@ -1,33 +1,25 @@
-export const config = {
-  runtime: 'edge',
-};
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default async function handler(req: Request) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const apiKey = process.env.google_places_api_key || process.env.GOOGLE_PLACES_API_KEY;
-    const placeId = 'ChIJZ4pSvKHZcg0R--thLDQs4PA'; // Provided by user
+    const placeId = 'ChIJZ4pSvKHZcg0R--thLDQs4PA';
 
     if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'Missing API Key' }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      });
+      return res.status(500).json({ error: 'Missing API Key' });
     }
 
     const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&language=es&key=${apiKey}`;
 
-    const res = await fetch(url);
-    const data = await res.json();
+    const response = await fetch(url);
+    const data = await response.json();
 
-    if (data.status !== 'OK' || !data.result.reviews) {
-      return new Response(JSON.stringify({ error: 'Failed to fetch reviews from Google', details: data }), {
-        status: 502,
-        headers: { 'Content-Type': 'application/json' },
-      });
+    if (data.status !== 'OK' || !data.result?.reviews) {
+      return res.status(502).json({ error: 'Failed to fetch reviews from Google', details: data });
     }
 
     const reviews = data.result.reviews
-      .filter((r: any) => r.rating >= 4) // Only keep 4 and 5 stars
+      .filter((r: any) => r.rating >= 4)
       .map((r: any) => ({
         author_name: r.author_name,
         text: r.text,
@@ -36,17 +28,9 @@ export default async function handler(req: Request) {
         time: r.time,
       }));
 
-    return new Response(JSON.stringify(reviews), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 's-maxage=86400, stale-while-revalidate=43200', // Cache for 24 hours
-      },
-    });
+    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=43200');
+    return res.status(200).json(reviews);
   } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return res.status(500).json({ error: error.message });
   }
 }
