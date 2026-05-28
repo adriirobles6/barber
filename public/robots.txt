@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://jcbarberclub.com/sitemap.xml

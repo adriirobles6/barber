@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header, BOOKSY_URL } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Scissors, Sparkles, Star } from "lucide-react";
-import hero from "@/assets/hero.jpg";
-import fade from "@/assets/fade.jpg";
-import shave from "@/assets/shave.jpg";
-import interior from "@/assets/interior.jpg";
+import hero from "@/assets/hero.webp";
+import fade from "@/assets/fade.webp";
+import shave from "@/assets/shave.webp";
+import interior from "@/assets/interior.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,6 +32,7 @@ function Home() {
             className="absolute inset-0 h-full w-full object-cover opacity-70"
             width={1600}
             height={1800}
+            fetchpriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
           <div className="absolute inset-0 vignette" />

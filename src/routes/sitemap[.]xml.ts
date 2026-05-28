@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "";
+const BASE_URL = "https://jcbarberclub.com";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/servicios", priority: "0.9" },
           { path: "/equipo", priority: "0.8" },
           { path: "/contacto", priority: "0.8" },
+          { path: "/academia", priority: "0.8" },
         ];
         const urls = entries
           .map(

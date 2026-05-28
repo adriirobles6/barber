@@ -73,6 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "JC Barberclub — Barbería en Marbella" },
       { name: "description", content: "Barbería masculina en Marbella. Cortes, fades, barba y afeitado clásico. Reserva online." },
+      { name: "keywords", content: "barbería, Marbella, fades, barba, afeitado clásico, Corte, haircut, tinte, platinado" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "JC Barberclub — Barbería en Marbella" },
@@ -90,6 +91,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HairSalon",
+          "name": "JC Barberclub",
+          "url": "https://jcbarberclub.com",
+          "telephone": "+34611383916",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avenida General Lopez Dominguez 36 Local 6",
+            "addressLocality": "Marbella",
+            "postalCode": "29603",
+            "addressCountry": "ES"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "10:00",
+              "closes": "14:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "15:00",
+              "closes": "21:00"
+            }
+          ]
+        })
+      }
+    ]
   }),
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header, BOOKSY_URL } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import jorge from "@/assets/jorge.jpg";
-import cristian from "@/assets/cristian.jpg";
+import jorge from "@/assets/jorge.webp";
+import cristian from "@/assets/cristian.webp";
 
 export const Route = createFileRoute("/equipo")({
   head: () => ({
