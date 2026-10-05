@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
 
 const BOOKSY_URL = "https://booksy.com/es-es/142517_jc-barberclub_barberia_29260_marbella";
 
